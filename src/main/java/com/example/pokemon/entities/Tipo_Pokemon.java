@@ -26,7 +26,7 @@ public class Tipo_Pokemon implements Serializable {
 	private String uuid;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="tipo")
+	@OneToMany(mappedBy="tipo_pokemon")
 	private List<Pokemon> pokemons;
 	
 

@@ -25,7 +25,7 @@ public class Pokemon implements Serializable {
 	private String descripcion;
 	@ManyToOne
 	@JoinColumn(name="tipo_pokemon")
-	private Tipo_Pokemon tipo;
+	private Tipo_Pokemon tipo_pokemon;
 	private Date fecha_descubrimiento;
 	private Integer generacion;
 	private String uuid;

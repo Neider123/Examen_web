@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.pokemon.entities.Pokemon;
 import com.example.pokemon.repository.PokemonRepository;
+import com.example.pokemon.repository.Tipo_PokemonRepository;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/pokemons")
@@ -23,11 +24,15 @@ public class PokemonController {
 	@Autowired
 	PokemonRepository pokemonRepository;
 	
+	@Autowired
+	Tipo_PokemonRepository tipo;
+	
 	@GetMapping
 	public List<Pokemon> getCategoriaAll () {
 		return pokemonRepository.findAll();
 	}
 	
+	/**
 	@GetMapping("/{id}")
 	public Pokemon getPokemonbyId(@PathVariable Integer id) {
 		
@@ -37,14 +42,25 @@ public class PokemonController {
 		}
 		return null;
 	}
+	**/
 	
 	@PostMapping
 	public Pokemon postCategoriasbyId(@RequestBody Pokemon pokemon) {
 		
 		pokemonRepository.save(pokemon);
 		return pokemon;
-		
 	}
+	
+	
+	
+	
+	
+	@GetMapping("/{tipo}")
+	 public List<Pokemon> getPokemonByTipo(@PathVariable String tipo) {
+	        // Utiliza el método del repositorio para buscar vehículos por color
+	        return pokemonRepository.findByTipoPokemon(tipo);
+	 }
+	   
 	
 	
 
